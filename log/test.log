@@ -1,0 +1,58 @@
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/launches" for 127.0.0.1 at 2022-12-13 16:32:31 +0100
+Processing by LaunchesController#create as JSON
+  Parameters: {"launch"=>{"rocket_id"=>"falconheavy", "site_name"=>"KSC LC 39A", "customer"=>"Iridium", "periapsis_km"=>190, "launch_time"=>"2022-12-13 09:24:38 UTC"}}
+Completed 201 Created in 522ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 22419)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/launches" for 127.0.0.1 at 2022-12-13 16:32:32 +0100
+Processing by LaunchesController#create as JSON
+  Parameters: {"launch"=>{"rocket_id"=>"falconheavy", "site_name"=>"KSC LC 39A", "customer"=>"Iridium", "periapsis_km"=>190, "launch_time"=>"2022-12-13 09:24:38 UTC"}}
+Completed 201 Created in 458ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 1781)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/launches" for 127.0.0.1 at 2022-12-13 16:32:32 +0100
+Processing by LaunchesController#create as JSON
+  Parameters: {"launch"=>{"rocket_id"=>"invalid_rocket_name", "site_name"=>"KSC LC 39A", "customer"=>"Iridium", "periapsis_km"=>190, "launch_time"=>"2022-12-13 09:24:38 UTC"}}
+Completed 422 Unprocessable Entity in 433ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 1726)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/launches" for 127.0.0.1 at 2022-12-13 16:32:45 +0100
+Processing by LaunchesController#create as JSON
+  Parameters: {"launch"=>{"rocket_id"=>"falconheavy", "site_name"=>"KSC LC 39A", "customer"=>"Iridium", "periapsis_km"=>190, "launch_time"=>"2022-12-13 09:24:38 UTC"}}
+Completed 201 Created in 433ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 22417)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/launches" for 127.0.0.1 at 2022-12-13 16:32:46 +0100
+Processing by LaunchesController#create as JSON
+  Parameters: {"launch"=>{"rocket_id"=>"falconheavy", "site_name"=>"KSC LC 39A", "customer"=>"Iridium", "periapsis_km"=>190, "launch_time"=>"2022-12-13 09:24:38 UTC"}}
+Completed 201 Created in 447ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 1778)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/launches" for 127.0.0.1 at 2022-12-13 16:32:46 +0100
+Processing by LaunchesController#create as JSON
+  Parameters: {"launch"=>{"rocket_id"=>"invalid_rocket_name", "site_name"=>"KSC LC 39A", "customer"=>"Iridium", "periapsis_km"=>190, "launch_time"=>"2022-12-13 09:24:38 UTC"}}
+Completed 422 Unprocessable Entity in 408ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 1721)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/launches" for 127.0.0.1 at 2022-12-13 19:57:57 +0100
+Processing by LaunchesController#create as JSON
+  Parameters: {"launch"=>{"rocket_id"=>"falconheavy", "site_name"=>"KSC LC 39A", "customer"=>"Iridium", "periapsis_km"=>190, "launch_time"=>"2022-12-13 09:24:38 UTC"}}
+Completed 201 Created in 532ms (Views: 1.0ms | ActiveRecord: 0.0ms | Allocations: 22419)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/launches" for 127.0.0.1 at 2022-12-13 19:57:58 +0100
+Processing by LaunchesController#create as JSON
+  Parameters: {"launch"=>{"rocket_id"=>"falconheavy", "site_name"=>"KSC LC 39A", "customer"=>"Iridium", "periapsis_km"=>190, "launch_time"=>"2022-12-13 09:24:38 UTC"}}
+Completed 201 Created in 429ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 1781)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/launches" for 127.0.0.1 at 2022-12-13 19:57:58 +0100
+Processing by LaunchesController#create as JSON
+  Parameters: {"launch"=>{"rocket_id"=>"invalid_rocket_name", "site_name"=>"KSC LC 39A", "customer"=>"Iridium", "periapsis_km"=>190, "launch_time"=>"2022-12-13 09:24:38 UTC"}}
+Completed 422 Unprocessable Entity in 531ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 1726)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
