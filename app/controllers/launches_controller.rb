@@ -4,9 +4,7 @@ require 'net/http'
 class LaunchesController < ApplicationController
   # See the https://docs.spacexdata.com/#intro for more information about SpaceX API
   def create
-    launch_attributes = params.fetch('launch', {}).slice(
-      *["rocket_id", "site_name", "customer", "periapsis_km", "launch_time"]
-    )
+    launch_attributes = launch_params(params)
 
     response = SpaceXData::V3::ListRockets.new.call
     all_available_rockets = response.body
@@ -27,5 +25,11 @@ class LaunchesController < ApplicationController
 
       render json: launch_attributes, status: :created
     end
+  end
+
+  private
+
+  def launch_params(params)
+    params.require(:launch).permit(:rocket_id, :site_name, :customer, :periapsis_km, :launch_time)
   end
 end
