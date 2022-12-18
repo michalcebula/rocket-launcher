@@ -8,8 +8,8 @@ class LaunchesController < ApplicationController
       *["rocket_id", "site_name", "customer", "periapsis_km", "launch_time"]
     )
 
-    response = SpaceXData::V3::Client.get('/rockets')
-    all_available_rockets = JSON.parse(response.body)
+    response = SpaceXData::V3::ListRockets.new.call
+    all_available_rockets = response.body
     all_available_rockets_ids = all_available_rockets.map { |rocket| rocket.fetch("rocket_id")}
 
     rocket_id = launch_attributes.fetch(:rocket_id)
