@@ -26,6 +26,11 @@ RSpec.describe "/launches", type: :request do
         )
       end
 
+      it "perisits a launch in a database" do
+        expect { post launches_url, params: { launch: valid_attributes }, as: :json }
+          .to change { Launch.count }.by(1)
+      end
+
       it "renders a JSON response with the new launch" do
         post launches_url,
              params: { launch: valid_attributes }, as: :json
@@ -36,6 +41,7 @@ RSpec.describe "/launches", type: :request do
 
     context "with invalid parameters" do
       let(:error_message) { JSON.parse(response.body)['error'] }
+
       context "with invalid rocket id" do
         let(:invalid_attributes) { valid_attributes.merge(rocket_id: 'invalid_rocket_name') }
 
@@ -45,6 +51,11 @@ RSpec.describe "/launches", type: :request do
           expect(response).to have_http_status(:unprocessable_entity)
           expect(error_message).to eq 'Invalid rocket_id'
           expect(response.content_type).to match(a_string_including("application/json"))
+        end
+
+        it "does not perisit a launch in a database" do
+          expect { post launches_url, params: { launch: invalid_attributes }, as: :json }
+            .to_not change { Launch.count }
         end
       end
 
@@ -58,6 +69,11 @@ RSpec.describe "/launches", type: :request do
           expect(error_message).to eq 'periapsis_km is too small'
           expect(response.content_type).to match(a_string_including("application/json"))
         end
+
+        it "does not perisit a launch in a database" do
+          expect { post launches_url, params: { launch: invalid_attributes }, as: :json }
+            .to_not change { Launch.count }
+        end
       end
 
       context "without launch time" do
@@ -69,6 +85,26 @@ RSpec.describe "/launches", type: :request do
           expect(response).to have_http_status(:unprocessable_entity)
           expect(error_message).to eq 'launch_time must be present'
           expect(response.content_type).to match(a_string_including("application/json"))
+        end
+
+        it "does not perisit a launch in a database" do
+          expect { post launches_url, params: { launch: invalid_attributes }, as: :json }
+            .to_not change { Launch.count }
+        end
+      end
+
+      context "when Launch cannot be persisted in a database" do
+        let(:error_message) { JSON.parse(response.body)['error'] }
+
+        before { allow(Launch).to receive(:create).with(any_args).and_return(false) }
+
+        it "renders a JSON response with errors for the new launch" do
+          post launches_url, params: { launch: valid_attributes }, as: :json
+
+          expect(response).to have_http_status(:unprocessable_entity)
+          expect(error_message).to eq 'Something went wrong. Please, try again'
+          expect(response.content_type).to match(a_string_including("application/json"))
+          expect(Launch.count).to be_zero
         end
       end
     end

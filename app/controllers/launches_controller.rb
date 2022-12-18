@@ -18,9 +18,11 @@ class LaunchesController < ApplicationController
       return render json: { error: 'periapsis_km is too small' }, status: :unprocessable_entity; end
 
     cost_per_launch = rockets_handler.cost_per_launch(rocket)
-    launch_detials = launch_attributes.full.merge!(cost_per_launch: cost_per_launch)
+    launch_attributes = launch_attributes.full.merge!(cost_per_launch: cost_per_launch)
+    
+    return render json: launch_attributes, status: :created if Launch.create(launch_attributes)
 
-    render json: launch_detials, status: :created
+    render json: { error: 'Something went wrong. Please, try again'}, status: :unprocessable_entity
   end
 
   private
