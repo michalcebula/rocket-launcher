@@ -5,3 +5,47 @@
   [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-12-16 18:54:17.067357"], ["updated_at", "2022-12-16 18:54:17.067357"]]
   [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
   [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateLaunches (20221218133911)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "launches" ("id" uuid NOT NULL PRIMARY KEY, "rocket_id" varchar, "site_name" varchar, "customer" varchar, "periapsis_km" varchar, "launch_time" varchar, "cost_per_launch" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221218133911"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mLaunch Create (0.2ms)[0m  [1m[32mINSERT INTO "launches" ("rocket_id", "site_name", "customer", "periapsis_km", "launch_time", "cost_per_launch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["rocket_id", nil], ["site_name", nil], ["customer", nil], ["periapsis_km", nil], ["launch_time", nil], ["cost_per_launch", nil], ["created_at", "2022-12-18 13:47:03.726923"], ["updated_at", "2022-12-18 13:47:03.726923"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mLaunch Create (0.3ms)[0m  [1m[32mINSERT INTO "launches" ("rocket_id", "site_name", "customer", "periapsis_km", "launch_time", "cost_per_launch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["rocket_id", "saturn V"], ["site_name", nil], ["customer", nil], ["periapsis_km", nil], ["launch_time", nil], ["cost_per_launch", nil], ["created_at", "2022-12-18 13:47:22.672706"], ["updated_at", "2022-12-18 13:47:22.672706"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mLaunch Create (0.2ms)[0m  [1m[32mINSERT INTO "launches" ("rocket_id", "site_name", "customer", "periapsis_km", "launch_time", "cost_per_launch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["rocket_id", "saturn V"], ["site_name", nil], ["customer", nil], ["periapsis_km", nil], ["launch_time", nil], ["cost_per_launch", nil], ["created_at", "2022-12-18 13:47:39.393404"], ["updated_at", "2022-12-18 13:47:39.393404"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateLaunches (20221218133911)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "launches"[0m
+  [1m[36mActiveRecord::SchemaMigration Delete All (0.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20221218133911"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateLaunches (20221218133911)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "launches" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "rocket_id" varchar, "site_name" varchar, "customer" varchar, "periapsis_km" varchar, "launch_time" varchar, "cost_per_launch" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221218133911"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mLaunch Create (0.3ms)[0m  [1m[32mINSERT INTO "launches" ("rocket_id", "site_name", "customer", "periapsis_km", "launch_time", "cost_per_launch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["rocket_id", "saturn V"], ["site_name", nil], ["customer", nil], ["periapsis_km", nil], ["launch_time", nil], ["cost_per_launch", nil], ["created_at", "2022-12-18 13:49:04.949444"], ["updated_at", "2022-12-18 13:49:04.949444"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mLaunch Load (0.2ms)[0m  [1m[34mSELECT "launches".* FROM "launches" ORDER BY "launches"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mLaunch Load (0.4ms)[0m  [1m[34mSELECT "launches".* FROM "launches"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mLaunch Destroy (0.5ms)[0m  [1m[31mDELETE FROM "launches" WHERE "launches"."id" = ?[0m  [["id", 1]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mLaunch Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "launches"[0m
